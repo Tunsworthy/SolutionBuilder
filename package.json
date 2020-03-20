@@ -1,0 +1,22 @@
+{
+  "name": "quote-api",
+  "version": "1.0.0",
+  "description": "API For getting Products",
+  "main": "server.js",
+  "scripts": {
+    "start_local": "env-cmd -f ./.env nodemon server.js",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "env-cmd": "^10.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2"
+  }
+}
