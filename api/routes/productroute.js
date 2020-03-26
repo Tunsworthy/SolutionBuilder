@@ -14,9 +14,19 @@ module.exports = function(app) {
       res.json(product)
     })
       });
-//Gets Product By Name  
+//Gets Product By ID  
   app.get('/product/id',function(req,res){
     Product.findOne({_id: req.query.id},function(err,product){
+      if (err)
+          res.send(err)
+      res.json(product)
+    })
+      });
+
+//Update Product by ID
+app.put('/product/id',function(req,res){
+    console.log("put product id", req.query.id,req.body)
+   Product.findOneAndUpdate({_id: req.query.id},req.body,{new: true},function(err,product){
       if (err)
           res.send(err)
       res.json(product)

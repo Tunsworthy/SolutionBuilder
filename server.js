@@ -12,8 +12,6 @@ var express = require('express');
 mongoose.Promise = global.Promise;
 mongoose.connect(mongourl, {useNewUrlParser: true,useUnifiedTopology: true }); 
 
-
-
 //Routes
 //var client = require('./routes/routeclient');
 //var all = require('./routes/allroutes');
