@@ -8,10 +8,19 @@ var express = require('express');
 	mongourl = process.env.MONGODB_URI;
 	cors = require('cors');
 	jwt = require('jsonwebtoken');
-// mongoose instance connection url connection
-mongoose.Promise = global.Promise;
-mongoose.connect(mongourl, {useNewUrlParser: true,useUnifiedTopology: true }); 
 
+async function dbconnection(){
+	mongoose.connect(mongourl, {useNewUrlParser: true,useUnifiedTopology: true }).then( 
+			() => {
+				console.info('Database connection established')
+		},
+		error => {
+			console.log(error.reason),
+			dbconnection()
+		});
+}
+
+dbconnection().catch(error => console.log(error))
 //Routes
 //var client = require('./routes/routeclient');
 //var all = require('./routes/allroutes');
