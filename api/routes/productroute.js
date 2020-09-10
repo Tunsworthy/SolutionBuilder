@@ -51,7 +51,13 @@ app.put('/product/id',function(req,res){
     })
       });
 
-
+  app.get('/test/',function(req,res){
+    
+      res.json(
+      {
+        message: "API is working"
+      })
+    });
   
   app.post('/product',function(req,res){
      console.log(req.body)

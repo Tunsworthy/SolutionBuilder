@@ -12,7 +12,7 @@ var express = require('express');
 async function dbconnection(){
 	mongoose.connect(mongourl, {useNewUrlParser: true,useUnifiedTopology: true }).then( 
 			() => {
-				console.info('Database connection established')
+				console.log('Database connection established')
 		},
 		error => {
 			console.log(error.reason),
