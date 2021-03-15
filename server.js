@@ -2,6 +2,7 @@ var express = require('express');
 	app = express();
 	mongoose = require('mongoose');
 	Product = require('./api/models/product'),
+	ECX = require('./api/models/ecx'),
 	//User = require('./api/models/users'),
 	bodyParser = require('body-parser');
 	port = process.env.PORT || 3000;
@@ -25,6 +26,7 @@ dbconnection().catch(error => console.log(error))
 //var client = require('./routes/routeclient');
 //var all = require('./routes/allroutes');
 var product = require('./api/routes/productroute')
+var product = require('./api/routes/ecxroute')
 //var auth = require('./api/middleware/auth');
 // view engine setup
 
