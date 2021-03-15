@@ -26,7 +26,7 @@ dbconnection().catch(error => console.log(error))
 //var client = require('./routes/routeclient');
 //var all = require('./routes/allroutes');
 var product = require('./api/routes/productroute')
-var product = require('./api/routes/ecxroute')
+var ecx = require('./api/routes/ecxroute')
 //var auth = require('./api/middleware/auth');
 // view engine setup
 
@@ -37,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //app.use(auth);
+ecx(app);
 product(app);
 
 app.use(function(req, res) {
