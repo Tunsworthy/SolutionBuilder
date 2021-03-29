@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 module.exports = function(app) {
   // Event Routes
   app.get('/ecx',function(req,res){
-    console.log(req.params)
+    //console.log(req.params)
     ECX.find({},function(err,ecx){
       if (err)
           res.send(err)
@@ -16,7 +16,7 @@ module.exports = function(app) {
 
 
   app.post('/ecx',function(req,res){
-     console.log(req.body)
+    // console.log(req.body)
      //var data = JSON.parse(req.body)
      //console.log(data)
     var new_ecx = new ECX(req.body);

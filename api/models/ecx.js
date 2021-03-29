@@ -6,7 +6,12 @@ var ECXschema = new Schema({
   name: {
         type: String
   },
-  metros: {},
+  uuid: {
+    type: String
+  },
+  metros: {
+    type: Array
+  },
   Encapsulation:{
     type: String
   },
@@ -15,6 +20,9 @@ var ECXschema = new Schema({
   },
   authKeyLabel:{
     type: String
+  },
+  speedbands:{
+    type: Array
   }
 });
 
