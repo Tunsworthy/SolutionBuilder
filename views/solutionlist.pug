@@ -1,0 +1,40 @@
+extends layout
+block content
+ .container
+  .row
+   .col(class="col")
+    .row
+     .col(class="mb-1")
+      h5(class="card-title") Claim Solution
+      .input-group
+       input(id="retrievesolution" class="form-control" size=8)
+       div(class="input-group-append")
+        button(class="btn btn-success" onclick="claimsolution()" id="retrieve") Claim
+    .row
+     .col
+      table(class="table table-hover table-striped")
+       tr
+        td
+         span Solution ID
+        if admin
+         td
+          span User Name
+        td
+         span Creation Date
+        td(class="text-right")
+         span Actions  
+       each solution in list
+        tr
+         td 
+          a(href='/?retrieveid='+ encodeURIComponent(solution.retrieveid)) #{solution.retrieveid} 
+         if admin
+          td
+           if solution.uid
+            span #{solution.uid}
+         td
+          span(id="date-"+encodeURIComponent(solution.retrieveid)) 
+         td(class="text-right")
+          a(class="btn btn-secondary btn-sm ml-1" href='/?retrieveid='+ encodeURIComponent(solution.retrieveid)) Edit
+          a(class="btn btn-danger btn-sm ml-1" href='/s/delete/?retrieveid='+ encodeURIComponent(solution.retrieveid)) Delete
+        script.
+         document.getElementById('date-#{solution.retrieveid}').innerHTML = moment("#{solution.Created_date}").format('DD/MM/YYYY');

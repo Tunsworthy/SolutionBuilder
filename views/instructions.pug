@@ -1,0 +1,22 @@
+.row
+ .col(class="col-sm-3")
+  .card
+   .card-body
+    h5(class="card-title") Step 1 - Add Service
+    p(class="card-text")
+     span You can add mutiple of the same service (eg. if you would like IaaS in both NSW and WA) 
+     .form
+     .div(class="input-group")
+       select(id="product-dropdown" name="product" class="custom-select")
+       .div(class="input-group-append")
+         a(class="btn btn-primary" onclick="addproduct()" id="add") Add
+ .col(class="col-sm-3")
+  .card
+   .card-body
+    h5(class="card-title") Step 2 - Configure Services
+    p(class="card-text")
+     | Using the input fields or dropdown lists configure the selected services.
+     br
+     | You can also add Optional Services (eg. IP-WAN Interconnect for IaaS)
+script.
+ productdropdown()

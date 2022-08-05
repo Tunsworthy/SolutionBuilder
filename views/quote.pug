@@ -1,0 +1,8 @@
+extends layout
+block content    
+ body(style={width: '21cm'})
+  script. 
+   retrievesolution("quote","#{retrieveid}")
+ include quoteheader.pug
+ .div(id="info" class="pb-4 ml-2 container")
+ include quotefooter.pug

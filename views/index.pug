@@ -1,0 +1,28 @@
+extends layout
+block content
+ if retrieveid
+  script.
+   retrievesolution('index',"#{retrieveid}")
+ .container-fluid(style={'margin-top':'1vh', 'margin-bottom': '2vh'})    
+   .row
+    .col(class="col-12")
+        include instructions.pug
+
+ .container-fluid(style={'margin-top':'1vh', 'margin-bottom': '6vh'})
+  .row
+    .col(class="col" style={'overflow-y': 'auto',overflow:'auto','margin-top':'1vh', 'margin-bottom': '6vh'})
+      form(id="form")
+        .div(id="info" class="pb-4") 
+ .row(class="mx-auto footer fixed-bottom bg-primary pl-4")
+    .span(class="align-self-center text-white") Upfront Price(Ex GST)
+    .form(class="form-inline")
+      .div(class="input-group pl-2 pr-3 pt-1 pb-1")  
+        .div(class="input-group-prepend")
+          .span(class="input-group-text") $
+        input(id="upfronttotal", class="form-control" size="8" readonly)
+    .span(class="align-self-center text-white") Monthly Price(Ex GST)
+    .form(class="form-inline")
+      .div(class="input-group pl-2 pt-1 pb-1")  
+        .div(class="input-group-prepend")
+          .span(class="input-group-text") $
+        input(id="monthlytotal", class="form-control" size="8" readonly) 

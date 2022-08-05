@@ -1,0 +1,355 @@
+extends layout
+block content
+ -
+   function value(name,object){
+   var result = object.find( ({label}) => label === name).value
+   console.log(result)
+   return(result)
+    }
+
+ script(type='text/javascript' src='/tablesort/tablesort.js')
+ script(type='text/javascript' src='/public/javascript/searchfunction.js') 
+
+ .container(class="col-12")
+  .row
+   .col
+    input(class="form-control" size=8 placeholder="Search..." type="text" id="search" onkeyup="searchfunction()")
+  .row
+     .col(class="col-12")
+      table(id="exctable" class="table table-hover table-striped")
+       thead(style="white-space: nowrap;") 
+        tr            
+         td        
+             span    Device ID
+         td        
+             span    Cust Site Ref
+         td        
+             span    SF Line Number (completed by Success Co-ordinator at Order Entry)
+         td        
+             span    Address
+         td        
+             span    Vocus Price Zone (Copy from OPTIC)
+         td        
+             span    OPTIC - NBN Access Technology                 
+         td        
+             span    "NBN Access Technology Error (VDSL WAN handoff not specified)"                 
+         td        
+             span    "Scroll Right to Nominate WAN Interfaces WAN Handoffs required - will Autocalculate"                 
+         td        
+             span    "WAN Link Error (WAN link details not provided)"                 
+         td        
+             span    Site Function                 
+         td        
+             span    Site Function Error                 
+         td        
+             span    Device Type               
+         td        
+             span    Solution Package                 
+         td        
+             span    "Solution Package Error (Not available with device)"                 
+         td        
+             span    Site Term (from Coversheet)                 
+         td        
+             span    Install Party                 
+         td        
+             span    Install Party Error                 
+         td        
+             span    Site Survey                 
+         td        
+             span    Cabling                 
+         td        
+             span    4G Primary or Backup                 
+         td        
+             span    "4G Primary/Backup/Costomer Error (Selection not valid or incorrect 4G hardware)"                 
+         td        
+             span    4G Hardware (FortiExtender)                 
+         td        
+             span    4G Hardware Error                 
+         td        
+             span    SIM Installed by                 
+         td        
+             span    SIM Install Error                 
+         td        
+             span    LAN SFP - Interface Type                 
+         td        
+             span    LAN SFP - Qty                 
+         td        
+             span    Rack Mount Option                 
+         td        
+             span    "Rack Mount Option Error (Rack Mount not available)"                 
+         td        
+             span    HA Configuration                 
+         td        
+             span    HA Related Site ID (from Column A)                 
+         td        
+             span    "HA Related Site ID Error (Related Sited do not match)"                 
+         td        
+             span    Switch Type                
+         td        
+             span    Switch Qty                 
+         td        
+             span    "2b - Upfront-Install+Survey +VDSL, SFP, Rack mount"                 
+         td        
+             span    DAF Approved pricing monthly (manual entry - needed for SF)                 
+         td        
+             span    2a - Monthly Total - Recurring                 
+         td        
+             span    SF SKU                 
+         td        
+             span    wan1Type                 
+         td        
+             span    wan1AccessType                 
+         td        
+             span    wan1Provider                 
+         td        
+             span    wan1Handoff                 
+         td        
+             span    wan1BWDown (Mbps)                 
+         td        
+             span    wan1BWUp (Mbps)                 
+         td        
+             span    wan2Type                 
+         td        
+             span    wan2AccessType                 
+         td        
+             span    wan2Provider                 
+         td        
+             span    wan2Handoff                 
+         td        
+             span    wan2BWDown (Mbps)                 
+         td        
+             span    wan2BWUp (Mbps)                 
+         td        
+             span    wan3Type                 
+         td        
+             span    wan3AccessType                 
+         td        
+             span    wan3Provider                 
+         td        
+             span    wan3Handoff                 
+         td        
+             span    wan3BWDown (Mbps)                 
+         td        
+             span    wan3BWUp (Mbps)                 
+         td        
+             span    wan4Type                 
+         td        
+             span    wan4AccessType                 
+         td        
+             span    wan4Provider                 
+         td        
+             span    wan4Handoff                 
+         td        
+             span    wan4BWDown (Mbps)                 
+         td        
+             span    wan4BWUp (Mbps)                 
+         td        
+             span    siteContactFullName                 
+         td        
+             span    siteContactMobile                 
+         td        
+             span    siteContactEmail                 
+         td        
+             span    siteContactRole                 
+         td        
+             span    siteInductionNotes                 
+         td        
+             span    siteHours                 
+         td        
+             span    Existing Service ID (POBxxxxxx)                 
+         td        
+             span    Site Function Check                 
+         td        
+             span    Solution Package Check                 
+         td        
+             span    Install Party Check                 
+         td        
+             span    4G Required Check                 
+         td        
+             span    4G Primary/Backup Check                 
+         td        
+             span    4G Hardware Check                 
+         td        
+             span    SIM Install Check                 
+         td        
+             span    VDSL Check                
+         td        
+             span    WAN Link Check                 
+         td        
+             span    Rack Mount Check                 
+         td        
+             span    HA Site ID Provided Check                 
+         td        
+             span    HA Site match Check                 
+         td        
+             span    MAC Scenario                 
+         td        
+             span    MAC Commentary
+        for object in list
+         tr            
+          td        
+           span    Device ID
+          td        
+           span    Cust Site Ref
+          td        
+           span    SF Line Number (completed by Success Co-ordinator at Order Entry)
+          td
+           span #{value("Addresses",object.details)}
+          td        
+             span    Vocus Price Zone (Copy from OPTIC)
+          td        
+              span    OPTIC - NBN Access Technology                 
+          td        
+              span    "NBN Access Technology Error (VDSL WAN handoff not specified)"                 
+          td        
+              span    "Scroll Right to Nominate WAN Interfaces WAN Handoffs required - will Autocalculate"                 
+          td        
+              span    "WAN Link Error (WAN link details not provided)"                 
+          td        
+              span #{value("Site Type",object.details)}                 
+          td        
+              span    Site Function Error                 
+          td        
+              span #{value("Device Type",object.details)}                
+          td        
+              span #{value("Agile Edge solution",object.details)}                
+          td        
+              span    "Solution Package Error (Not available with device)"                 
+          td        
+              span    Site Term (from Coversheet)                 
+          td        
+              span #{value("Installation",object.details)}                
+          td        
+              span    Install Party Error                 
+          td        
+              span #{value("Site Survey",object.details)}                     
+          td        
+              span #{value("Cabling",object.details)}                   
+          td        
+              span    4G Primary or Backup                 
+          td        
+              span    "4G Primary/Backup/Costomer Error (Selection not valid or incorrect 4G hardware)"                 
+          td        
+              span    4G Hardware (FortiExtender)                 
+          td        
+              span    4G Hardware Error                 
+          td        
+              span    SIM Installed by                 
+          td        
+              span    SIM Install Error                 
+          td        
+              span    LAN SFP - Interface Type                 
+          td        
+              span    LAN SFP - Qty                 
+          td        
+              span    Rack Mount Option                 
+          td        
+              span    "Rack Mount Option Error (Rack Mount not available)"                 
+          td        
+              span    HA Configuration                 
+          td        
+              span    HA Related Site ID (from Column A)                 
+          td        
+              span    "HA Related Site ID Error (Related Sited do not match)"                 
+          td        
+              span    Switch Type                
+          td        
+              span    Switch Qty                 
+          td        
+              span    "2b - Upfront-Install+Survey +VDSL, SFP, Rack mount"                 
+          td        
+              span    DAF Approved pricing monthly (manual entry - needed for SF)                 
+          td        
+              span    2a - Monthly Total - Recurring                 
+          td        
+              span    =IFERROR(IF([@[Device ID]]="-","",INDEX('Package Lookups-Recurring'!G:G,MATCH(1,('2. Sites Solution Input Sheet'!J8='Package Lookups-Recurring'!A:A)*('2. Sites Solution Input Sheet'!L8='Package Lookups-Recurring'!B:B)*('2. Sites Solution Input Sheet'!M8='Package Lookups-Recurring'!C:C)*('2. Sites Solution Input Sheet'!O8='Package Lookups-Recurring'!D:D)*('2. Sites Solution Input Sheet'!V8='Package Lookups-Recurring'!E:E)*('2. Sites Solution Input Sheet'!T8='Package Lookups-Recurring'!F:F),0))),"Invalid Featureset Combination")              
+          td        
+              span    wan1Type                 
+          td        
+              span    wan1AccessType                 
+          td        
+              span    wan1Provider                 
+          td        
+              span    wan1Handoff                 
+          td        
+              span    wan1BWDown (Mbps)                 
+          td        
+              span    wan1BWUp (Mbps)                 
+          td        
+              span    wan2Type                 
+          td        
+              span    wan2AccessType                 
+          td        
+              span    wan2Provider                 
+          td        
+              span    wan2Handoff                 
+          td        
+              span    wan2BWDown (Mbps)                 
+          td        
+              span    wan2BWUp (Mbps)                 
+          td        
+              span    wan3Type                 
+          td        
+              span    wan3AccessType                 
+          td        
+              span    wan3Provider                 
+          td        
+              span    wan3Handoff                 
+          td        
+              span    wan3BWDown (Mbps)                 
+          td        
+              span    wan3BWUp (Mbps)                 
+          td        
+              span    wan4Type                 
+          td        
+              span    wan4AccessType                 
+          td        
+              span    wan4Provider                 
+          td        
+              span    wan4Handoff                 
+          td        
+              span    wan4BWDown (Mbps)                 
+          td        
+              span    wan4BWUp (Mbps)                 
+          td        
+              span    siteContactFullName                 
+          td        
+              span    siteContactMobile                 
+          td        
+              span    siteContactEmail                 
+          td        
+              span    siteContactRole                 
+          td        
+              span    siteInductionNotes                 
+          td        
+              span    siteHours                 
+          td        
+              span    Existing Service ID (POBxxxxxx)                 
+          td        
+              span    Site Function Check                 
+          td        
+              span    Solution Package Check                 
+          td        
+              span    Install Party Check                 
+          td        
+              span    4G Required Check                 
+          td        
+              span    4G Primary/Backup Check                 
+          td        
+              span    4G Hardware Check                 
+          td        
+              span    SIM Install Check                 
+          td        
+              span    VDSL Check                
+          td        
+              span    WAN Link Check                 
+          td        
+              span    Rack Mount Check                 
+          td        
+              span    HA Site ID Provided Check                 
+          td        
+              span    HA Site match Check                 
+          td        
+              span    MAC Scenario                 
+          td        
+              span    MAC Commentary

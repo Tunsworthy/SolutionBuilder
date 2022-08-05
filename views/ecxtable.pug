@@ -1,0 +1,165 @@
+extends layout
+block content
+ script(type='text/javascript' src='/tablesort/tablesort.js')
+ script(type='text/javascript' src='/public/javascript/searchfunction.js') 
+ .container
+  .row
+     .col
+      table(id="exctable" class="table table-hover")
+       tbody(style="white-space: nowrap;") 
+       -b = 0
+         tr
+          td
+           span Cloud Service 
+          each service in list
+           td
+            span #{service.name}
+         tr
+          td(rowspan=3) 
+           span Encapsulation
+          tr
+           each service,index in list
+            if service.Encapsulation === "DOT1Q"
+             - colour = "pink"
+            td(bgcolor= colour) 
+              span DOT1Q
+              -colour = ""
+          tr
+           each service,index in list
+            if service.Encapsulation === "QINQ"
+             - colour = "pink"
+            td(bgcolor= colour) 
+             span QINQ
+             -colour = ""
+         tr
+          td
+           span Service Key
+          each service in list
+           td
+            span #{service.authKeyLabel} 
+         tr
+          td(rowspan=8)
+            span Avalability
+          tr
+           each service,index in list
+             each metro in service.metros
+              if metro.name === "Sydney"
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span Equinix SY1
+              -colour = ""
+          tr
+           each service,index in list
+             each metro in service.metros
+              if metro.name === "Sydney"
+               - colour = "Pink"
+             td(bgcolor= colour)
+              span Equinix SY3
+              -colour = ""
+          tr
+           each service,index in list
+             each metro in service.metros
+              if metro.name === "Melbourne"
+               - colour = "Pink"
+             td(bgcolor= colour)
+              span Equinix M1
+              -colour = ""
+          tr
+           each service,index in list
+             td(bgcolor= colour)
+              span Global Switch
+          tr
+           each service,index in list
+             td(bgcolor= colour)
+              span NextDC-M1 
+          tr
+           each service,index in list
+             td(bgcolor= colour)
+              span NextDC-P1
+          tr
+           each service,index in list
+             td(bgcolor= colour)
+              span NextDC-S1
+          tr
+           td(rowspan=11)
+            span Speeds (MB)
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 50
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 50
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 100
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 100
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 200
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 200
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 500
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 500
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 1000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 1000
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 2000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 2000
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 4000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 4000
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 5000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 5000
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 8000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 8000
+              -colour = ""
+          tr
+           each service,index in list
+             each speed in service.speedbands
+              if speed.speed === 10000
+               - colour = "pink"
+             td(bgcolor= colour) 
+              span 10000
+              -colour = ""

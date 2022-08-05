@@ -1,0 +1,18 @@
+block menu
+.nav(class="navbar sticky-top navbar-dark bg-primary d-print-none" style={'margin-bottom': '1vh'})
+ div.dropdown
+  button(class="nav-link navbar-toggler" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+   span(class="navbar-toggler-icon")
+  div.dropdown-menu(id="navbarDropdown1")
+   button.dropdown-item(type="button" onclick="window.location.href='/'") Main Page
+   button.dropdown-item(type="button" onclick="window.location.href='/slist'") List Solutions
+   if path === "/" 
+    div.dropdown-divider
+    button.dropdown-item(type="button" onclick="savesolution('save')" id="save") Save Solution
+    button.dropdown-item(type="button" onclick='savesolution("update","'+retrieveid+'")' id="update") Update Solution
+    if retrieveid !== null
+     button.dropdown-item(type="button" onclick='savesolution("quote","'+retrieveid+'")' id="generate") Generate Quote
+    else
+     button.dropdown-item(type="button" onclick="savesolution('quote')" id="generate") Generate Quote
+ span(class="navbar-brand") #{title}
+ span(class="navbar-brand") Welcome #{username}

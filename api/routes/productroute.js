@@ -80,8 +80,8 @@ app.put('/product/id',function(req,res){
       );
   });
 
-  app.delete('/product',function(req,res){
-    console.log(req.query)
+  app.delete('/product/id',function(req,res){
+    console.log(req.query.id)
     Product.deleteOne({_id: req.query.id},function(err,product){
       if(err)
         res.send(err)

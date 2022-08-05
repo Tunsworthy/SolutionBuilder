@@ -1,0 +1,45 @@
+extends layout
+block content
+ script(type='text/javascript' src='/tablesort/tablesort.js')
+ script(type='text/javascript' src='/public/javascript/searchfunction.js') 
+ script window.onload = function() { new Tablesort(document.getElementById('exctable')); }
+ .container
+  .row
+   .col
+    input(class="form-control" size=8 placeholder="Search..." type="text" id="search" onkeyup="searchfunction()")
+  .row
+     .col
+      table(id="exctable" class="table table-hover table-striped")
+       thead(style="white-space: nowrap;") 
+        tr
+         td
+          span Cloud Service 
+          i(class="fas fa-sort")
+         td
+          span Encapsulation 
+          i(class="fas fa-sort")
+         td
+          span AuthKey 
+          i(class="fas fa-sort")
+         td
+          span Avalability 
+          i(class="fas fa-sort")
+         td
+          span Speeds (MB)
+       each service in list
+        tr
+         td 
+          span #{service.name} 
+         td
+          span #{service.Encapsulation}
+         td
+          span #{service.authKeyLabel}
+         td
+          -a = 0
+          each location in service.metros
+           if location.type == "Local"
+            span #{(a >= 1 ? ', ' : '') + location.displayName}
+            - a++
+         td
+          each option, i in service.speedbands
+           span #{(i === 0 ? '' : ', ') + option.speed}

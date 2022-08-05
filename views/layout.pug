@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet',href='/fontawesome/css/all.css')
+    script(type='text/javascript' src='/js/jquery.min.js')
+    script(type='text/javascript' src='/js/bootstrap.min.js')
+    script(type='text/javascript' src='/js/bootstrap.bundle.min.js')
+    script(type='text/javascript' src='/js/moment.js')
+    script(type='text/javascript' src='/public/javascript/customjs.js')
+    script(type='text/javascript' src='/public/javascript/quote.js')
+    script(type='text/javascript' src='/public/javascript/quotepage.js')
+    script(type='text/javascript' src='/public/javascript/checkbox.js')
+style(type="text/css").
+  .no-border {
+    border: 0;
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+    }
+
+    meta name='viewport', content='width=device-width, initial-scale=1, user-scalable=0' 
+body()
+include menu
+.container-fluid
+   .row
+    .col(class="col-12")
+      div(id="alerts")
+if alertm
+  script.
+   alertbox("#{alertm}","#{alertt}")
+block content
